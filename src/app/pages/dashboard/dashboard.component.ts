@@ -27,7 +27,6 @@ export class DashboardComponent implements OnInit {
   constructor(private fb: FormBuilder, private httpService: HttpClient,
      private apiService: ApiService, private router: Router) {
     this.userForm = fb.group({
-      id: [''],
       firstname: [''],
       lastname: [''],
       email: [''],
@@ -64,11 +63,6 @@ export class DashboardComponent implements OnInit {
 
   update(){
     this.formEditEnabled = true;
-    // this.userForm.disable();
-    // this.userForm.get('firstname')?.enable();
-    // this.userForm.get('lastname')?.enable();
-     this.userForm.get('id')?.disable();
-
 
   }
   
@@ -78,15 +72,23 @@ export class DashboardComponent implements OnInit {
   }
 
   save(){
-    const request = this.userForm.value;
-    const url = 'https://ltrx.herokuapp.com/api/v1/auth/user';
-    const header = this.apiService.getHeaders();;
     
-    const data = [request.firstname, request.lastname, request.country, request.bio, request.username,
-      request.email];
+    const url = 'https://ltrx.herokuapp.com/api/v1/auth/user';
+    const header = this.apiService.getHeaders();
+    let request = '';
+    let flag= false;
+    for(let data in this.userForm.value){
+      if(flag){
+        request += '&';
+      }
+      request = request+data.toString()+'='+this.userForm.value[data].toString();
+      flag=true;
+    }
 
-    this.httpService.put(url, this.userForm.value, {headers: header}).subscribe((data: any)=>{
+    this.httpService.put(url, request, {headers: header}).subscribe((data: any)=>{
       this.userData = data.data;
+      this.userForm.patchValue(data.data);
+      this.formEditEnabled= false;
     },
     (err)=>{
       if(err.error.code == 'TOKEN_EXPIRED'){
