@@ -1,0 +1,25 @@
+<div class="login-container">
+    <div class="app-card">
+        <div class="logo">
+            <img src="assets/download.png" alt="outlook"/>
+        </div>
+        <form [formGroup]="loginForm" *ngIf ="loginFormEnable">
+            <div>
+                <input type="text" placeholder="email" formControlName="email">
+            </div>
+            <div>
+                <input type="password" placeholder="password" formControlName="password">
+            </div>
+        </form>
+        <form *ngIf ="!loginFormEnable">
+            
+            <input type="text" placeholder="token" [formControl]="tokenControl">
+        </form>
+
+        <button (click)="login()" class="login-button" *ngIf ="loginFormEnable">Login</button>
+        <button (click)="register()" class="login-button register-button" *ngIf ="loginFormEnable">Register</button>
+        <button (click)="verify()" class="login-button register-button" *ngIf ="!loginFormEnable">Verify</button>
+
+        <div class="copy-right">COPYRIGHT 2021 LANTRONIX, INC  |  ALL RIGHTS RESERVED</div>
+    </div>
+</div>

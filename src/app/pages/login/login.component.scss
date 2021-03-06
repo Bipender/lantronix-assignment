@@ -1,0 +1,56 @@
+.login-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+   // background-color: #cceeff;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(204, 230, 255,1));
+    justify-content: center;
+    display: flex;
+}
+
+.app-card{
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    text-align: center;
+
+    .logo {
+        img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    form{
+        div{
+            margin: 10px;
+        }
+    }
+
+    .login-button{
+        margin: 10px;
+        border: 0px;
+        outline: 0px;
+        background-color: #000066;
+        color: white;
+        border-radius: 10px;
+        width: 70%;
+        padding: 4px 0px 4px 0px;
+        margin: 3px 0px 3px 0px;    
+    }
+
+    .register-button {
+        background-color: white;
+        color: #000066;
+        border: 2px solid #000066;
+
+    }
+}
+
+
+
+.copy-right{
+    position: relative;
+    bottom: 0px;
+    font-size: 10px;
+}

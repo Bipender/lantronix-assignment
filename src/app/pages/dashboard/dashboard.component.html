@@ -1,0 +1,64 @@
+<div class="header">
+    <div>
+        <h3>Dashboard</h3>
+    </div>
+    <div>
+        <span>?</span>
+        <span class="user">{{user}}</span>
+    </div>
+</div>
+<div class="container">
+    <form [formGroup]="userForm">
+        <div class="data-block">
+            <div>First Name</div>
+            <div *ngIf="!formEditEnabled" >{{userData.firstname}}</div>
+            <div *ngIf="formEditEnabled" >
+                <input type="text" formControlName ="firstname"/>
+            </div>
+
+        </div>
+        <div class="data-block">
+            <div>Last Name</div>
+            <div *ngIf="!formEditEnabled">{{userData.lastname}}</div>
+            <div *ngIf="formEditEnabled" >
+                <input type="text" formControlName ="lastname"/>
+            </div>
+
+        </div>
+        <div class="data-block" *ngIf="!formEditEnabled">
+            <div>Password</div>
+            <div>***********</div>
+        </div>
+
+        <div class="data-block" *ngIf="formEditEnabled">
+            <div>Bio</div>
+            <div>
+                <input type="text" formControlName ="bio"/>
+            </div>
+        </div>
+        
+        <div class="data-block">
+            <div>Email</div>
+            <div *ngIf="!formEditEnabled">{{userData.email}}</div>
+            <div *ngIf="formEditEnabled" >
+                <input type="text" formControlName ="email"/>
+            </div>
+        </div>
+        <div class="data-block">
+            <div>Country</div>
+            <div *ngIf="!formEditEnabled">{{userData.country}}</div>
+            <div *ngIf="formEditEnabled" >
+                <label class="form-input">
+                    <!-- <span>country</span> -->
+                    <input type="text" formControlName ="country"/>
+                </label>
+            </div>
+
+        </div>
+    </form>
+    <button *ngIf="!formEditEnabled" (click)="update()">Update</button>
+    <button *ngIf="formEditEnabled" (click)="save()">Save</button>
+    <button *ngIf="formEditEnabled" class="cancel()" (click)="cancel()">Cancel</button>
+
+     
+</div>
