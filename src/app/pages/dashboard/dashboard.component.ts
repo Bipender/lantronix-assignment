@@ -48,6 +48,7 @@ export class DashboardComponent implements OnInit {
     this.httpService.get(url, {headers: header}).subscribe((data: any)=>{
       this.userData = data.data;
       this.userForm.patchValue(this.userData);
+      this.user = this.userData.firstname.charAt(0)+ this.userData.lastname.charAt(0);
 
 
     },
