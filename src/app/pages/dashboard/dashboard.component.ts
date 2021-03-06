@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/service/api.service';
+import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-dashboard',
