@@ -4,11 +4,17 @@
             <img src="assets/download.png" alt="outlook"/>
         </div>
         <form [formGroup]="loginForm" *ngIf ="loginFormEnable">
-            <div>
-                <input type="text" placeholder="email" formControlName="email">
+            <div class="form-input">
+                <label class="md-text-outlined">
+                    <input type="text" formControlName="email" required>
+                    <span>email</span>
+                </label>
             </div>
-            <div>
-                <input type="password" placeholder="password" formControlName="password">
+            <div class="form-input">
+                <label class="md-text-outlined">
+                    <input type="password" formControlName="password" required>
+                    <span>password</span>
+                </label>
             </div>
         </form>
         <form *ngIf ="!loginFormEnable">

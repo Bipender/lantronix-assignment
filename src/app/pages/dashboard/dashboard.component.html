@@ -12,7 +12,7 @@
         <div class="data-block">
             <div>First Name</div>
             <div *ngIf="!formEditEnabled" >{{userData.firstname}}</div>
-            <div *ngIf="formEditEnabled" >
+            <div *ngIf="formEditEnabled">
                 <input type="text" formControlName ="firstname"/>
             </div>
 

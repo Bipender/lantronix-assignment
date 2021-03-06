@@ -9,3 +9,50 @@
 button {
     cursor: pointer;
 }
+
+.form-input {
+    width: 350px;
+    max-width: 100%;
+    label{
+        width: 100%;
+    }
+}
+
+.md-text-outlined {
+    position: relative;
+    display: inline-block;
+    padding-top: 6px;
+    font-size: 16px;
+    line-height: 2.5;
+    overflow: hidden;
+}
+
+.md-text-outlined >input{
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+    border-top-color: transparent;
+    padding-top: 10px 13px 10px;
+    width: 100%;
+    height: inherit;
+    color: rgba(0,0,0, 0.87);
+    background-color: transparent;
+    box-shadow: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    font-size: 15px;
+}
+
+.md-text-outlined >input+span{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    display: flex;
+    font-weight: bold;
+}
+.md-text-outlined >input:focus +span, .md-text-outlined >input:valid +span{
+    top: -12px;
+    left: 0;
+    transition: top 0.2s;
+}

@@ -15,9 +15,13 @@ export class ApiService {
 
 
     refreshToken(){
+        if(null == localStorage.getItem(this.TOKEN_KEYWORD)){
+            clearInterval(this.tokenRefreshTimer);
+            return;
+        }
         this.tokenRefreshTimer = setInterval(()=>{
             this.callRefreshTokenApi();
-        }, 2459)
+        }, 240000)
 
     }
 
@@ -32,6 +36,7 @@ export class ApiService {
         if(null != accesstoken){
             token = JSON.parse(accesstoken);
         }else{
+            this.clearTokenRefresh();
             this.router.navigate(['/login']);
         }
         const request = {
